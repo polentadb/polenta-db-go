@@ -3,5 +3,5 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Starting PolentaGo")
+	fmt.Println("Starting Polenta Go")
 }
