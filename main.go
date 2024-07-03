@@ -43,6 +43,6 @@ func handleClient(conn net.Conn) {
 		}
 
 		var statement ExecutableStatement = Statement{statement: string(buffer[:n])}
-		statement.Execute()
+		conn.Write([]byte(statement.Execute()))
 	}
 }
