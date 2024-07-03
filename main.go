@@ -39,11 +39,10 @@ func handleClient(conn net.Conn) {
 		// Read data from the client
 		n, err := conn.Read(buffer)
 		if err != nil {
-			fmt.Println("Error:", err)
 			return
 		}
 
-		// Process and use the data (here, we'll just print it)
-		fmt.Printf("Received: %s\n", buffer[:n])
+		var statement ExecutableStatement = Statement{statement: string(buffer[:n])}
+		statement.Execute()
 	}
 }
