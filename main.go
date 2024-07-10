@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
+	statements "polenta/statements"
 )
 
 func main() {
@@ -42,7 +43,11 @@ func handleClient(conn net.Conn) {
 			return
 		}
 
-		var statement ExecutableStatement = Statement{statement: string(buffer[:n])}
-		conn.Write([]byte(statement.Execute()))
+		statement := string(buffer[:n])
+
+		fmt.Println("received statement:", statement)
+
+		var statementExecutor statements.StatementExecutor = statements.CreateExecutor(statement)
+		conn.Write([]byte(statementExecutor.Execute()))
 	}
 }
