@@ -1,10 +1,12 @@
 package main
 
-func selectionSort(rows Rows, criteria string) Rows {
+import data "polenta/data"
+
+func selectionSort(rows SortableRows, criteria string) SortableRows {
 	for i := 0; i < len(rows); i++ {
 		var min = i
 		for j := i + i; j < len(rows); j++ {
-			if compare(rows[j], rows[min], criteria) < 0 {
+			if data.CompareRows(rows[j], rows[min], criteria) < 0 {
 				min = j
 			}
 		}

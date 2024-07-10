@@ -1,7 +1,6 @@
-package main
+package data
 
 type Value interface {
-	//Compare(Value) int
 }
 
 type IntegerValue struct {
@@ -22,11 +21,7 @@ func NewStringValue(v string) Value {
 	return iv
 }
 
-type Row map[string]Value
-
-type Rows []Row
-
-func compareValues(v1 Value, v2 Value) int {
+func CompareValues(v1 Value, v2 Value) int {
 	switch v1.(type) {
 	case IntegerValue:
 		return v1.(IntegerValue).Compare(v2.(IntegerValue))

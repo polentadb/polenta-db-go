@@ -1,5 +1,7 @@
 package main
 
-func selectFrom(rows Rows, _ string, _ string, order string) Rows {
-	return rows.Sort(order)
+import data "polenta/data"
+
+func selectFrom(rows data.Rows, _ string, _ string, order string) data.Rows {
+	return data.Rows(SortableRows(rows).Sort(order))
 }

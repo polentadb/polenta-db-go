@@ -1,21 +1,19 @@
 package main
 
+import data "polenta/data"
+
 type Sortable interface {
-	Sort(criteria string) Rows
+	Sort(criteria string) data.Rows
 }
 
-func (r Rows) Sort(criteria string) Rows {
+type SortableRows data.Rows
+
+func (r SortableRows) Sort(criteria string) SortableRows {
 	return selectionSort(r, criteria)
 }
 
-func exchange(rows Rows, i int, j int) {
+func exchange(rows SortableRows, i int, j int) {
 	temp := rows[i]
 	rows[i] = rows[j]
 	rows[j] = temp
-}
-
-func compare(row1 Row, row2 Row, field string) int {
-	value1 := row1[field]
-	value2 := row2[field]
-	return compareValues(value1, value2)
 }
