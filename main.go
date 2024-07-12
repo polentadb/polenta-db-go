@@ -47,7 +47,7 @@ func handleClient(conn net.Conn) {
 
 		fmt.Println("received statement:", statement)
 
-		var statementExecutor statements.StatementExecutor = statements.CreateExecutor(statement)
-		conn.Write([]byte(statementExecutor.Execute()))
+		response := statements.CreateExecutor(statement).Execute()
+		conn.Write([]byte(response))
 	}
 }
