@@ -4,11 +4,11 @@ import (
 	"strings"
 )
 
-type StatementExecutor interface {
+type Statement interface {
 	Execute() string
 }
 
-func CreateExecutor(statement string) StatementExecutor {
+func CreateExecutor(statement string) Statement {
 	if strings.HasPrefix(strings.ToUpper(statement), "CREATE") {
 		var createStatement CreateStatement = CreateStatement{statement: statement}
 		return createStatement
