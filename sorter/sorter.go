@@ -9,7 +9,7 @@ type Sortable interface {
 type SortableRows data.Rows
 
 func (r SortableRows) Sort(criteria string) SortableRows {
-	return selectionSort(r, criteria)
+	return sortBySelection(r, criteria)
 }
 
 func exchange(rows SortableRows, i int, j int) {

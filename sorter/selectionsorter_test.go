@@ -11,7 +11,7 @@ func TestSelectionSort(t *testing.T) {
 	r3 := data.Row{"name": data.NewStringValue("Ringo"), "age": data.NewIntegerValue(27)}
 	r := data.Rows{r1, r2, r3}
 	sr := SortableRows(r)
-	sorted := sr.Sort("age")
+	sorted := sortBySelection(sr, "age")
 	if sorted[0].GetString("name") != "Paul" {
 		t.Error("Expected Paul, got ", sorted[0].GetString("name"))
 	}

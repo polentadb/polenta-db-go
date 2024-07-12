@@ -2,7 +2,7 @@ package sorter
 
 import data "polenta/data"
 
-func selectionSort(rows SortableRows, criteria string) SortableRows {
+func sortBySelection(rows SortableRows, criteria string) SortableRows {
 	for i := 0; i < len(rows); i++ {
 		var min = i
 		for j := i + i; j < len(rows); j++ {
