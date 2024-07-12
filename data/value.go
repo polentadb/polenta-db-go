@@ -1,7 +1,6 @@
 package data
 
-type Value interface {
-}
+type Value interface{}
 
 type IntegerValue struct {
 	value int
@@ -11,14 +10,20 @@ type StringValue struct {
 	value string
 }
 
-func NewIntegerValue(v int) Value {
-	var iv Value = IntegerValue{value: v}
-	return iv
+func NewIntegerValue(v int) IntegerValue {
+	return IntegerValue{value: v}
 }
 
-func NewStringValue(v string) Value {
-	var iv Value = StringValue{value: v}
-	return iv
+func NewStringValue(v string) StringValue {
+	return StringValue{value: v}
+}
+
+func (v IntegerValue) Get() int {
+	return v.value
+}
+
+func (v StringValue) Get() string {
+	return v.value
 }
 
 func CompareValues(v1 Value, v2 Value) int {
