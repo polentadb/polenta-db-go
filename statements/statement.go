@@ -21,6 +21,5 @@ func CreateExecutor(statement string) Statement {
 		var insertStatement InsertStatement = InsertStatement{statement: statement}
 		return insertStatement
 	}
-	var fallbackStatement FallbackStatement = FallbackStatement{statement: statement}
-	return fallbackStatement
+	return nil
 }

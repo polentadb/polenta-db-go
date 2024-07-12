@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
-	statements "polenta/statements"
+	polenta "polenta/polenta"
 )
 
 func main() {
@@ -47,7 +47,7 @@ func handleClient(conn net.Conn) {
 
 		fmt.Println("received statement:", statement)
 
-		response := statements.CreateExecutor(statement).Execute()
+		response := polenta.Run(statement)
 		conn.Write([]byte(response))
 	}
 }
