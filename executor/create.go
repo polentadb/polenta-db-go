@@ -1,7 +1,7 @@
 package executor
 
 import (
-	store "polenta/store"
+	store "polenta-db-go/store"
 )
 
 type CreateExecutor struct {

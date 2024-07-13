@@ -5,25 +5,31 @@ import (
 )
 
 type Response struct {
-	Success bool
-	Message string
-	Body    string
+	ErrorCode int
+	Error     string
+	Message   string
+	Body      string
 }
 
 type Executor interface {
 	Execute() Response
 }
 
-func Create(statement string) (Executor, *string) {
+func CreateErrorResponse(errCode int, err string) Response {
+	return Response{ErrorCode: errCode, Error: err}
+}
+
+func Create(statement string) (Executor, *int, *string) {
 	if strings.HasPrefix(strings.ToUpper(statement), "CREATE") {
-		return CreateExecutor{statement: statement}, nil
+		return CreateExecutor{statement: statement}, nil, nil
 	}
 	if strings.HasPrefix(strings.ToUpper(statement), "SELECT") {
-		return SelectExecutor{statement: statement}, nil
+		return SelectExecutor{statement: statement}, nil, nil
 	}
 	if strings.HasPrefix(strings.ToUpper(statement), "INSERT") {
-		return InsertExecutor{statement: statement}, nil
+		return InsertExecutor{statement: statement}, nil, nil
 	}
+	errcode := 1
 	err := "Invalid statement"
-	return nil, &err
+	return nil, &errcode, &err
 }

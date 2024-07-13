@@ -1,7 +1,7 @@
 package sorter
 
 import (
-	data "polenta/data"
+	data "polenta-db-go/data"
 	"testing"
 )
 

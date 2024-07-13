@@ -1,14 +1,14 @@
 package polenta
 
-import executor "polenta/executor"
+import executor "polenta-db-go/executor"
 
-func Run(statement string) string {
-	executor, err := executor.Create(statement)
-	if err != nil {
-		return *err
+func Run(statement string) executor.Response {
+	exec, errCode, err := executor.Create(statement)
+	if err != nil && errCode != nil {
+		return executor.CreateErrorResponse(*errCode, *err)
 	}
-	if executor != nil {
-		return executor.Execute().Message
+	if exec != nil {
+		return exec.Execute()
 	}
-	return "Invalid statement"
+	return executor.CreateErrorResponse(2, "Internal error")
 }
