@@ -1,14 +1,14 @@
-package statements
+package executors
 
 import (
 	store "polenta/store"
 )
 
-type CreateStatement struct {
+type CreateExecutor struct {
 	statement string
 }
 
-func (s CreateStatement) Execute() string {
+func (s CreateExecutor) Execute() string {
 	execute(s.statement)
 	return "Executed create statement"
 }
