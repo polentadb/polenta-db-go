@@ -1,4 +1,4 @@
-package executors
+package executor
 
 import (
 	data "polenta/data"
@@ -9,13 +9,13 @@ type SelectExecutor struct {
 	statement string
 }
 
-func (s SelectExecutor) Execute() string {
+func (s SelectExecutor) Execute() Response {
 	fields := "TBD"
 	where := "TBD"
 	orderBy := "TBD"
 	rows := data.Rows{}
 	selected := selectFrom(rows, fields, where, orderBy)
-	return "Executed select statement. Selected " + string(rune(len(selected))) + " rows."
+	return Response{Message: "Executed select statement. Selected " + string(rune(len(selected))) + " rows."}
 }
 
 func selectFrom(rows data.Rows, _ string, _ string, orderBy string) data.Rows {

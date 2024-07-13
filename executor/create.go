@@ -1,4 +1,4 @@
-package executors
+package executor
 
 import (
 	store "polenta/store"
@@ -8,9 +8,9 @@ type CreateExecutor struct {
 	statement string
 }
 
-func (s CreateExecutor) Execute() string {
+func (s CreateExecutor) Execute() Response {
 	execute(s.statement)
-	return "Executed create statement"
+	return Response{Message: "Executed create statement"}
 }
 
 func execute(statement string) {

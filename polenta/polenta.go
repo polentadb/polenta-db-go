@@ -1,14 +1,14 @@
 package polenta
 
-import executors "polenta/executors"
+import executor "polenta/executor"
 
 func Run(statement string) string {
-	executor, err := executors.Create(statement)
+	executor, err := executor.Create(statement)
 	if err != nil {
 		return *err
 	}
 	if executor != nil {
-		return executor.Execute()
+		return executor.Execute().Message
 	}
 	return "Invalid statement"
 }

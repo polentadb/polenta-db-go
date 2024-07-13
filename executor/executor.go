@@ -1,9 +1,17 @@
-package executors
+package executor
 
-import "strings"
+import (
+	"strings"
+)
+
+type Response struct {
+	Success bool
+	Message string
+	Body    string
+}
 
 type Executor interface {
-	Execute() string
+	Execute() Response
 }
 
 func Create(statement string) (Executor, *string) {
