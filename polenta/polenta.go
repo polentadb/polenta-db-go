@@ -1,6 +1,6 @@
 package polenta
 
-import executor "polenta-db-go/executor"
+import executor "github.com/polentadb/polenta-db-go/executor"
 
 func Run(statement string) executor.Response {
 	exec, errCode, err := executor.Create(statement)

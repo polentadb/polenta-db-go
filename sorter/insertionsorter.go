@@ -1,6 +1,6 @@
 package sorter
 
-import data "polenta-db-go/data"
+import data "github.com/polentadb/polenta-core-go/data"
 
 func sortByInsertion(rows SortableRows, criteria string) SortableRows {
 	for i := 1; i < len(rows); i++ {

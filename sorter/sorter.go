@@ -1,6 +1,6 @@
 package sorter
 
-import data "polenta-db-go/data"
+import data "github.com/polentadb/polenta-core-go/data"
 
 type Sortable interface {
 	Sort(criteria string) data.Rows

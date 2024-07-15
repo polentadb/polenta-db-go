@@ -1,7 +1,7 @@
 package sorter
 
 import (
-	data "polenta-db-go/data"
+	data "github.com/polentadb/polenta-core-go/data"
 	"testing"
 )
 

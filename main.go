@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	executor "github.com/polentadb/polenta-db-go/executor"
+	polenta "github.com/polentadb/polenta-db-go/polenta"
 	"net"
-	executor "polenta-db-go/executor"
-	polenta "polenta-db-go/polenta"
 )
 
 func main() {

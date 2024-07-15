@@ -1,8 +1,8 @@
 package executor
 
 import (
-	data "polenta-db-go/data"
-	sorter "polenta-db-go/sorter"
+	data "github.com/polentadb/polenta-core-go/data"
+	sorter "github.com/polentadb/polenta-db-go/sorter"
 )
 
 type SelectExecutor struct {
