@@ -3,13 +3,13 @@ package sorter
 import data "github.com/polentadb/polenta-core-go/data"
 
 type Sortable interface {
-	Sort(criteria string) data.Rows
+	Sort(criteria string) SortableRows
 }
 
-type SortableRows data.Rows
+type SortableRows []data.Row
 
-func (r SortableRows) Sort(criteria string) SortableRows {
-	return sortBySelection(r, criteria)
+func (rows SortableRows) Sort(criteria string) SortableRows {
+	return sortBySelection(rows, criteria)
 }
 
 func exchange(rows SortableRows, i int, j int) {
