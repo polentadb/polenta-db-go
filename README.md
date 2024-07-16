@@ -1,12 +1,21 @@
-# Polenta DB
+# PolentaDB
 
-Polenta DB is an in-memory database. 
+PolentaDB is an in-memory relational database. 
 
-This version is implemented in GoLang, and uses TCP as communication protocol between clients and server.
+This version is implemented in Go, and uses TCP as communication protocol between clients and server.
 
-### How to run and test
+### Cloning projects
 
-1. Clone polenta-db-go
-2. Run ```go run .```
-3. Clone polenta-db-go-test
-4. Run ```go run main.go```
+1. ```git clone git@github.com:polentadb/polenta-db-go.git```
+2. ```git clone git@github.com:polentadb/polenta-core-go.git```
+3. ```git clone git@github.com:polentadb/polenta-db-go-test.git```
+
+### How to run 
+
+1. ```cd polenta-db-go```
+2. ```go run .```
+
+### How to test
+
+1. ```cd polenta-db-go-test```
+2. ```go run main.go```
