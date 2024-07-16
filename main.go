@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	executor "github.com/polentadb/polenta-db-go/executor"
-	polenta "github.com/polentadb/polenta-db-go/polenta"
+	polenta "github.com/polentadb/polenta-core-go/polenta"
 	"net"
 )
 
@@ -42,7 +41,7 @@ func handleClient(conn net.Conn) {
 	}
 }
 
-func encodeResponse(response executor.Response) []byte {
+func encodeResponse(response polenta.Response) []byte {
 	responseStr := response.Message
 	return []byte(responseStr)
 }
