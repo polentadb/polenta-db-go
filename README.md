@@ -1,4 +1,4 @@
-# PolentaDB
+# PolentaDB - polenta-db-go
 
 PolentaDB is an in-memory relational database. 
 
