@@ -21,7 +21,9 @@ func main() {
 			fmt.Println("Error:", err)
 			continue
 		}
-		go handleClient(conn)
+		go func(c net.Conn) {
+			handleClient(c)
+		}(conn)
 	}
 }
 
