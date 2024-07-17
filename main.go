@@ -4,16 +4,27 @@ import (
 	"fmt"
 	polenta "github.com/polentadb/polenta-core-go/polenta"
 	"net"
+	"os"
+	"strings"
 )
 
+func port(args []string) string {
+	if len(args) > 1 && strings.HasPrefix(args[1], "port=") {
+		return strings.Split(args[1], "=")[1]
+	}
+	return "9000"
+}
+
 func main() {
-	listener, err := net.Listen("tcp", "localhost:8080")
+	port := port(os.Args)
+	address := "localhost:" + port
+	listener, err := net.Listen("tcp", address)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 	defer listener.Close()
-	fmt.Println("Server is listening on port 8080")
+	fmt.Println("PolentaDB is waiting for statements on port " + port)
 	for {
 		conn, err := listener.Accept()
 		if err != nil {

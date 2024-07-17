@@ -13,7 +13,7 @@ This version is implemented in Go, and uses TCP as communication protocol betwee
 ### How to run 
 
 1. ```cd polenta-db-go```
-2. ```go run .```
+2. ```go run main.go```
 
 ### How to test
 
