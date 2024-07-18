@@ -4,6 +4,8 @@ PolentaDB is an in-memory relational database.
 
 This version is implemented in Go, and uses TCP as communication protocol between clients and server.
 
+This repo contains the code for the executable.
+
 ### Cloning projects
 
 1. ```git clone git@github.com:polentadb/polenta-db-go.git```
