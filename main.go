@@ -53,6 +53,11 @@ func handleClient(conn net.Conn) {
 }
 
 func encodeResponse(response polenta.Response) []byte {
-	responseStr := response.Message
+	var responseStr string
+	if response.Error != "" {
+		responseStr = response.Error
+	} else {
+		responseStr = response.Message
+	}
 	return []byte(responseStr)
 }
